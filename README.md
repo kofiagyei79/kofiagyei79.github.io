@@ -44,7 +44,7 @@ This project involved simulating a real-world cyberattack on a completely blind 
 
 ## 📂 Project Assets
 
-* 📄 **Presentation:** [Download Capstone Presentation](./Presentation.pdf) *(Note: Ensure your presentation file is uploaded to this repository and update this link path if needed)*
+* 📄 **Presentation:**[Download Capstone Presentation](./Presentation1Black%20Box%20system%20testing.pptx)) *(Note: Ensure your presentation file is uploaded to this repository and update this link path if needed)*
 * 💻 **Source Code/Scripts:** View the repository folders above to see custom configurations and lab notes.
 
 ---
