@@ -1,4 +1,4 @@
-# kofiagye79.github.io
+# kofiagyei79.github.io
  My cybersecurity project portfolio showcasing setups, attack analyses, and skills."
 <div class="project">
 <h2>Black Box Hacking (Capstone Project)</h2>
