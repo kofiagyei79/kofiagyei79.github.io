@@ -76,6 +76,5 @@ This project demonstrates the design, deployment, and testing of a multi-subnet 
 
 * **Email:** kofiagyei79@gmail.com
 * **GitHub:** [kofiagyei79](https://github.com)
-* **LinkedIn:** [Kofi Agyei](https://linkedin.com)
 
 © 2026 Kofi Agyei
