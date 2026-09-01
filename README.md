@@ -86,7 +86,7 @@ index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50
 | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip
 | where unique_ports_scanned > 20
 
-Use code with caution.
+
 
 * **Alert 2: Credential Stuffing (SSH Brute Force Detection)**
 Tracks anomalous authentication failure rates on the target host to mitigate potential root-level access compromises.
@@ -97,7 +97,7 @@ index=network_logs sourcetype=linux_secure src_ip="10.1.1.10" dest_ip="192.168.6
 | stats count by src_ip, dest_ip, user
 | where count > 5
 
-Use code with caution.
+
 
 * **Alert 3: Web Exploitation (Directory Traversal / Command Injection)**
 Scans web daemon access events for application-layer exploit strings targeting the corporate application layer.
@@ -107,7 +107,7 @@ splunk
 index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="*etc/passwd*" OR uri_path="*cmd.exe*" OR uri_path="*bin/sh*")
 | table _time, src_ip, uri_path, status
 
-Use code with caution.
+
 
 ### 📂 Project 2 Assets
 
