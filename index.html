@@ -54,13 +54,24 @@
             padding: 2rem;
             margin-bottom: 2.5rem;
         }
+        .project-image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
         .project-image {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 6px;
             border: 1px solid var(--border-color);
-            margin: 1.5rem 0;
             display: block;
+        }
+        .image-caption {
+            font-size: 0.85rem;
+            color: #8b949e;
+            text-align: center;
+            margin-top: 0.5rem;
         }
         .btn {
             display: inline-block;
@@ -125,7 +136,6 @@
                 <li><strong>Exploitation Sequence:</strong> Used Metasploit Framework vectors to achieve root authorization footprints.</li>
             </ul>
             
-            <!-- FIXED: Pointing correctly into your image directory -->
             <img class="project-image" src="image/black-box-hacking.png" alt="Black Box Hacking Lab Screen">
             <a href="./Presentation1Black%20Box%20system%20testing.pptx" class="btn">📂 Download Presentation</a>
         </div>
@@ -142,24 +152,46 @@
                 <li><strong>Detection Engineering:</strong> Engineered specialized Splunk Processing Language (SPL) rules to trigger immediate alerts on live attacks.</li>
             </ul>
             
-            <!-- FIXED: Pointing to your deployed image file -->
-            <img class="project-image" src="image_e4e52062.png" alt="EVE-NG Network Topology Map">
-            <a href="README.md" class="btn">💻 View Splunk Configurations</a>
-        </div>
+            <!-- Side-by-Side Media Display Grid -->
+            <div class="project-image-container">
+                <!-- Left Column: EVE-NG Environment Screen -->
+                <div>
+                    <img class="project-image" src="image_e4e52062.png" alt="EVE-NG Network Topology Map">
+                    <div class="image-caption">📊 EVE-NG Simulation Environment Topology</div>
+                </div>
+                
+                <!-- Right Column: HTML Native Vector Architecture Map -->
+                <div>
+                    <svg viewBox="0 0 500 330" style="width:100%; height:auto; border:1px solid var(--border-color); border-radius:6px; background:#0d1117; display:block;">
+                        <!-- Title Info -->
+                        <text x="15" y="25" fill="#fff" font-family="sans-serif" font-size="12" font-weight="bold">LAB ARCHITECTURAL MAP</text>
+                        <text x="15" y="40" fill="#58a6ff" font-family="sans-serif" font-size="9">Target IP: 192.168.60.131 (Metasploitable 2)</text>
+                        <line x1="15" y1="48" x2="485" y2="48" stroke="#30363d" stroke-width="1"/>
+                        
+                        <!-- Zone A -->
+                        <rect x="15" y="65" width="145" height="150" rx="4" fill="#161b22" stroke="#f85149" stroke-width="1" stroke-dasharray="3 3"/>
+                        <text x="25" y="80" fill="#f85149" font-family="sans-serif" font-size="9" font-weight="bold">SITE A: ATTACK ZONE</text>
+                        <text x="25" y="95" fill="#8b949e" font-family="sans-serif" font-size="8">Subnet: 10.1.1.0/24</text>
+                        <rect x="25" y="110" width="125" height="40" rx="3" fill="#21262d" stroke="#30363d"/>
+                        <text x="35" y="125" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">Kali Linux-VM</text>
+                        <text x="35" y="140" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 10.1.1.10</text>
+                        
+                        <rect x="25" y="160" width="125" height="45" rx="3" fill="#21262d" stroke="#30363d"/>
+                        <text x="35" y="175" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">pfSense GW</text>
+                        <text x="35" y="190" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 10.1.1.1</text>
+                        
+                        <!-- Zone B -->
+                        <rect x="175" y="65" width="150" height="150" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+                        <text x="185" y="80" fill="#58a6ff" font-family="sans-serif" font-size="9" font-weight="bold">SITE B: TARGET LAN & SIEM</text>
+                        <text x="185" y="95" fill="#8b949e" font-family="sans-serif" font-size="8">Subnet: 192.168.60.0/24</text>
+                        
+                        <rect x="185" y="110" width="130" height="40" rx="3" fill="#1f1712" stroke="#d45500" stroke-width="1.5"/>
+                        <text x="195" y="123" fill="#ff9955" font-family="sans-serif" font-size="9" font-weight="bold">Metasploitable 2</text>
+                        <text x="195" y="138" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">192.168.60.131</text>
+                        
+                        <rect x="185" y="160" width="130" height="45" rx="3" fill="#21262d" stroke="#30363d"/>
+                        <text x="195" y="173" fill="#fff" font-family="sans-serif" font-size="8" font-weight="bold">SAMAMTV Web</text>
+                        <text x="195" y="188" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 192.168.60.50</text>
 
-        <!-- Contact Section -->
-        <section style="text-align: center; margin-top: 4rem;">
-            <h2>📩 Connect With Me</h2>
-            <p>Looking for a dedicated Security Analyst? Let's talk!</p>
-            <p><strong>Email:</strong> kofiagyei79@gmail.com</p>
-            <a href="https://github.com" class="btn">GitHub Profile</a>
-        </section>
-
-    </div>
-
-    <footer>
-        &copy; 2026 Kofi Agyei Portfolio. Built with HTML5 & CSS3.
-    </footer>
-
-</body>
-</html>
+                        <!-- Zone C -->
+                        <rect x="340" y="65" width="145" height="150" rx="4" fill="#161b22" stroke="#ff7b72" stroke-width="1" stroke-dasharray="3 3"/>
