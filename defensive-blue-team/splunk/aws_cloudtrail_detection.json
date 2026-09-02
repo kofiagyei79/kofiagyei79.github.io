@@ -1,0 +1,23 @@
+{
+  "Detection_Name": "AWS_IAM_Privilege_Escalation_Detection",
+  "Target_Log_Source": "AWS_CloudTrail",
+  "Severity": "Critical",
+  "MITRE_ATTACK": "T1078.004 - Cloud Accounts",
+  "Search_Query_Logic": {
+    "Target_Events": [
+      "CreatePolicyVersion",
+      "AttachUserPolicy",
+      "UpdateAssumeRolePolicy"
+    ],
+    "Filter_Parameters": {
+      "eventSource": "://amazonaws.com",
+      "errorMessage": "null",
+      "Policy_Privilege_Match": "Effect: Allow, Action: *, Resource: *"
+    }
+  },
+  "Incident_Response_Playbook": {
+    "Step_1": "Identify the compromised IAM User AccessKeyId from the principalId field.",
+    "Step_2": "Programmatically disable the active Access Key using AWS CLI or Wiz Console.",
+    "Step_3": "Audit the cloud trail history for the preceding 2 hours to trace any secondary backdoors created."
+  }
+}
