@@ -195,8 +195,8 @@
             </ul>
 
             <div class="project-actions">
-                <a href="docs/Presentation1Black Box system testing.pptx" class="btn" download>📥 Download Capstone PPTX</a>
-                <a href="docs/Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
+                <a href="Presentation1Black Box system testing.pptx" class="btn" download="Presentation1Black Box system testing.pptx">📥 Download Capstone PPTX</a>
+                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
                 <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
             </div>
         </article>
@@ -205,6 +205,7 @@
         <article class="project-card">
             <span class="project-badge badge-hybrid">Hybrid Operations</span>
             <h3>🚀 Project 2: Enterprise Virtual Range & Splunk SIEM Infrastructure</h3>
+            
             <p>End-to-end configuration mapping of an isolated corporate enterprise subnet setup built inside virtual emulation spaces (EVE-NG). Includes strict security access control policies, custom IPsec traffic paths, and integrated telemetry detection rules.</p>
             
             <h4>Core Infrastructure Engineering:</h4>
@@ -217,7 +218,7 @@
             <h4>Sample Splunk Threat Alert Pattern (Port-Scan Engine):</h4>
             <pre class="code-block">index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" | bucket _time span=1m | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip | where unique_ports_scanned > 20</pre>
 
-            <div class="project-actions">
+            <div class="project-actions" style="margin-top: 1.5rem;">
                 <a href="https://github.com" class="btn" target="_blank">🔍 Audit Splunk Pipeline Configs</a>
                 <a href="https://github.com" class="btn" target="_blank">💻 View Main Repo Files</a>
             </div>
@@ -225,7 +226,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Kofi Okrah Agyei | Connection Points: <a href="mailto:kofiagyei79@gmail.com">kofiagyei79@gmail.com</a></p>
+        <p>© 2026 Kofi Okrah Agyei | Connection Points: <a href="mailto:kofiagyei79@gmail.com">kofiagyei79@gmail.com</a></p>
     </footer>
 
 </body>
