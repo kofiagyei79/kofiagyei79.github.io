@@ -1,0 +1,14 @@
+{
+  "Log_Source": "Proofpoint_TAP_SIEM_API",
+  "Target_Index": "email_security_logs",
+  "Event_Correlations": {
+    "Threat_Type": "Phishing_URL_Click",
+    "Actions": ["clickBlocked", "clickPermitted"],
+    "Critical_Alert_Logic": "Action == clickPermitted AND Threat_Severity == High"
+  },
+  "L2_Triage_Playbook": {
+    "Step_1": "Isolate the recipient's corporate email address from the principal field.",
+    "Step_2": "Verify if the browser click was permitted or successfully blocked by Proofpoint.",
+    "Step_3": "If permitted, immediately initiate an endpoint sweep in SentinelOne to search for active memory adjustments or browser-spawned shell processes."
+  }
+}
