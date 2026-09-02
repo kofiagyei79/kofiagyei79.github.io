@@ -103,6 +103,7 @@
 
         .badge-red { background-color: rgba(248, 81, 73, 0.15); color: #FF7B72; border: 1px solid rgba(248, 81, 73, 0.3); }
         .badge-hybrid { background-color: rgba(210, 153, 34, 0.15); color: #D29922; border: 1px solid rgba(210, 153, 34, 0.3); }
+        .badge-progress { background-color: rgba(88, 166, 255, 0.15); color: #58A6FF; border: 1px solid rgba(88, 166, 255, 0.3); }
 
         h2, h3 { color: var(--text-bright); }
         h2 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 0; }
@@ -204,30 +205,23 @@
         <!-- PROJECT 2 CARD -->
         <article class="project-card">
             <span class="project-badge badge-hybrid">Hybrid Operations</span>
+            <span class="project-badge badge-progress">🛠️ Active Implementation Phase</span>
             <h3>🚀 Project 2: Enterprise Virtual Range & Splunk SIEM Infrastructure</h3>
             
-            <p>End-to-end configuration mapping of an isolated corporate enterprise subnet setup built inside virtual emulation spaces (EVE-NG). Includes strict security access control policies, custom IPsec traffic paths, and integrated telemetry detection rules.</p>
+            <p>Architectural layout and configuration planning of an isolated corporate enterprise subnet setup built inside virtual emulation spaces (EVE-NG). Currently establishing network segmentation structures, access controls, and forwarding endpoints into a centralized telemetry collection platform.</p>
             
-            <h4>Core Infrastructure Engineering:</h4>
+            <h4>Planned Infrastructure Engineering Phases:</h4>
             <ul>
-                <li><strong>Zero-Trust Routing:</strong> Multi-subnet segmentation layouts handled directly by configured pfSense edge gateways.</li>
-                <li><strong>Telemetry Deployment:</strong> Configured active local data collectors (Splunk Universal Forwarders) across environment logs.</li>
-                <li><strong>Detection Engineering:</strong> Programmed specialized Search Processing Language (SPL) profiles to target web command injection strings, active network port scanning, and automated password brute-force events.</li>
+                <li><strong>Zero-Trust Routing Schema:</strong> Designing multi-subnet segmentation layouts handled directly by pfSense edge gateways.</li>
+                <li><strong>Telemetry Deployment Blueprint:</strong> Deploying active log harvesters (Splunk Universal Forwarders) across environment hosts.</li>
+                <li><strong>Detection Engineering Logic:</strong> Scripting specialized Search Processing Language (SPL) profiles to target web command injection strings, active network port scanning, and automated password brute-force events.</li>
             </ul>
 
-            <h4>Sample Splunk Threat Alert Pattern (Port-Scan Engine):</h4>
+            <h4>Planned Splunk Threat Alert Pattern (Port-Scan Engine Baseline):</h4>
             <pre class="code-block">index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" | bucket _time span=1m | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip | where unique_ports_scanned > 20</pre>
 
             <div class="project-actions" style="margin-top: 1.5rem;">
-                <a href="https://github.com" class="btn" target="_blank">🔍 Audit Splunk Pipeline Configs</a>
+                <a href="https://github.com" class="btn" target="_blank">🔍 Preview Planned Splunk Configs</a>
                 <a href="https://github.com" class="btn" target="_blank">💻 View Main Repo Files</a>
             </div>
         </article>
-    </main>
-
-    <footer>
-        <p>© 2026 Kofi Okrah Agyei | Connection Points: <a href="mailto:kofiagyei79@gmail.com">kofiagyei79@gmail.com</a></p>
-    </footer>
-
-</body>
-</html>
