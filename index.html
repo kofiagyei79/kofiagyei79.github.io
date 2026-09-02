@@ -3,195 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kofi Agyei | Cybersecurity Portfolio</title>
+    <title>Kofi Agyei | Enterprise Cybersecurity Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff;
-            --card-bg: #161b22;
-            --border-color: #30363d;
+            --bg-main: #0B0F19;
+            --bg-card: #161B22;
+            --accent-blue: #58A6FF;
+            --accent-green: #3FB950;
+            --text-main: #C9D1D9;
+            --text-bright: #F0F6FC;
+            --border-color: #30363D;
         }
+
         body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
+
         header {
-            background-color: var(--card-bg);
+            background: linear-gradient(135deg, #1F293D 0%, #0F141C 100%);
             border-bottom: 1px solid var(--border-color);
-            padding: 2rem 1rem;
+            padding: 3rem 2rem;
             text-align: center;
         }
-        h1 { color: #fff; margin-bottom: 0.5rem; }
-        h2, h3 { color: var(--accent-color); }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+
+        .header-container h1 {
+            color: var(--text-bright);
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+            font-weight: 700;
         }
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            padding: 0;
-            list-style: none;
+
+        .header-container p {
+            color: var(--accent-blue);
+            margin: 0;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
         }
-        .skills-list li {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 0.75rem;
-            border-radius: 6px;
-            text-align: center;
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
-        .project-card {
-            background-color: var(--card-bg);
+
+        .skills-section {
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.5rem;
             margin-bottom: 2.5rem;
         }
-        .project-image-container {
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        .project-image {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            display: block;
-        }
-        .image-caption {
-            font-size: 0.85rem;
-            color: #8b949e;
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #21262d;
-            color: var(--accent-color);
-            border: 1px solid var(--border-color);
+
+        .skill-tag {
+            background-color: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
             padding: 0.5rem 1rem;
             border-radius: 6px;
-            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-right: 0.5rem;
+            text-align: center;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .badge-red { background-color: rgba(248, 81, 73, 0.15); color: #FF7B72; border: 1px solid rgba(248, 81, 73, 0.3); }
+        .badge-hybrid { background-color: rgba(210, 153, 34, 0.15); color: #D29922; border: 1px solid rgba(210, 153, 34, 0.3); }
+
+        h2, h3 { color: var(--text-bright); }
+        h2 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 0; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #21262D;
+            border: 1px solid var(--border-color);
+            color: var(--accent-blue);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.75rem;
             margin-top: 0.5rem;
+            transition: background-color 0.2s;
         }
+
         .btn:hover {
-            background-color: #30363d;
-            border-color: #8b949e;
+            background-color: #30363D;
+            color: var(--text-bright);
         }
+
+        .code-block {
+            background-color: #0d1117;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            color: #E6EDF3;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
+            color: #7d8590;
             border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
+
+        a { color: var(--accent-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Kofi Agyei</h1>
-        <p>Cybersecurity Analyst & Systems Security Engineer</p>
+        <div class="header-container">
+            <h1>Kofi Okrah Agyei</h1>
+            <p>Cybersecurity Engineer & Detection Architect Portfolio</p>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <!-- Skills Section -->
-        <section>
-            <h2>🛠️ Technical Security Skills & Tools</h2>
-            <ul class="skills-list">
-                <li>🟢 Network Scanning: <strong>Nmap</strong></li>
-                <li>🟢 Exploitation: <strong>Metasploit</strong></li>
-                <li>🟢 Traffic Analysis: <strong>Wireshark</strong></li>
-                <li>🟢 SIEM & Analytics: <strong>Splunk</strong></li>
-                <li>🟢 Boundary Routing: <strong>pfSense / VPN</strong></li>
-                <li>🟢 Testing: <strong>Black Box Testing</strong></li>
-            </ul>
+    <main>
+        <!-- TECHNICAL TOOLKIT SECTION -->
+        <section class="skills-section">
+            <h2>🛠️ Core Technical Security Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Nmap Advanced Enumeration</div>
+                <div class="skill-tag">Metasploit Exploitation</div>
+                <div class="skill-tag">Splunk SIEM (SPL Architecture)</div>
+                <div class="skill-tag">pfSense Firewall Engineering</div>
+                <div class="skill-tag">IPsec Site-to-Site VPN</div>
+                <div class="skill-tag">Black Box System Assessment</div>
+                <div class="skill-tag">Wireshark Traffic Analysis</div>
+                <div class="skill-tag">Blue-Team Telemetry Logging</div>
+            </div>
         </section>
 
-        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
-
-        <!-- Projects Section -->
-        <h2>🚀 Cyber Range Portfolio Projects</h2>
-
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>Project 1: Black Box Hacking Simulation (Capstone)</h3>
-            <p>Simulated a real-world defensive audit on a blind target environment. Researched hidden attack surfaces, ran stealth service tracking controls, exploited security gaps safely, and structured executive documentation briefs.</p>
+        <!-- PROJECT 1 CARD -->
+        <article class="project-card">
+            <span class="project-badge badge-red">Offensive Red Team</span>
+            <h3>🚀 Project 1: Black Box Penetration Testing Simulation</h3>
+            <p>Authorized compromise analysis targeted against a blind system node to simulate real-world exploit strings, execute standard lateral environment transitions, and bypass sandbox boundary mechanisms.</p>
             
-            <h4>Core Phases Execution:</h4>
+            <h4>Core Engagement Phases:</h4>
             <ul>
-                <li><strong>Reconnaissance & Scanning:</strong> Used Nmap for passive asset mapping and service fingerprinting.</li>
-                <li><strong>Packet Analysis:</strong> Tracked communication layers using Wireshark to locate system vulnerabilities.</li>
-                <li><strong>Exploitation Sequence:</strong> Used Metasploit Framework vectors to achieve root authorization footprints.</li>
+                <li><strong>Reconnaissance & Scan:</strong> Exploited active discovery arrays via Nmap platform engines to locate service hooks.</li>
+                <li><strong>Credential Extraction:</strong> Abused unauthenticated local guest SMB directories to recover cleartext configuration leaks (`deets.txt`).</li>
+                <li><strong>Reverse Control Chain:</strong> Attached automated exploitation handlers inside web management dependencies via Metasploit interfaces to drop interactive reverse payloads.</li>
+                <li><strong>Sandbox Isolation Escape:</strong> Neutralized confined local shells (`rbash`) cleanly using dynamic runtime library code injections.</li>
             </ul>
-            
-            <img class="project-image" src="image/black-box-hacking.png" alt="Black Box Hacking Lab Screen">
-            <a href="./Presentation1Black%20Box%20system%20testing.pptx" class="btn">📂 Download Presentation</a>
-        </div>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering</h3>
-            <p>Designed a multi-site network lab within EVE-NG to evaluate zero-trust network layout boundaries. Simulated live Red Team penetration routing paths over an encrypted IPsec VPN tunnel while aggregating enterprise telemetry back to a central Splunk platform.</p>
+            <div class="project-actions">
+                <a href="docs/Presentation1Black Box system testing.pptx" class="btn" download>📥 Download Capstone PPTX</a>
+                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
+            </div>
+        </article>
+
+        <!-- PROJECT 2 CARD -->
+        <article class="project-card">
+            <span class="project-badge badge-hybrid">Hybrid Operations</span>
+            <h3>🚀 Project 2: Enterprise Virtual Range & Splunk SIEM Infrastructure</h3>
+            <p>End-to-end configuration mapping of an isolated corporate enterprise subnet setup built inside virtual emulation spaces (EVE-NG). Includes strict security access control policies, custom IPsec traffic paths, and integrated telemetry detection rules.</p>
             
-            <h4>Core Phases Execution:</h4>
+            <h4>Core Infrastructure Engineering:</h4>
             <ul>
-                <li><strong>Network Isolation:</strong> Programmed pfSense firewalls to contain lateral host movement.</li>
-                <li><strong>Offensive Auditing:</strong> Ran custom vulnerability sequences against target systems and corporate web elements.</li>
-                <li><strong>Detection Engineering:</strong> Engineered specialized Splunk Processing Language (SPL) rules to trigger immediate alerts on live attacks.</li>
+                <li><strong>Zero-Trust Routing:</strong> Multi-subnet segmentation layouts handled directly by configured pfSense edge gateways.</li>
+                <li><strong>Telemetry Deployment:</strong> Configured active local data collectors (Splunk Universal Forwarders) across environment logs.</li>
+                <li><strong>Detection Engineering:</strong> Programmed specialized Search Processing Language (SPL) profiles to target web command injection strings, active network port scanning, and automated password brute-force events.</li>
             </ul>
-            
-            <!-- Side-by-Side Media Display Grid -->
-            <div class="project-image-container">
-                <!-- Left Column: EVE-NG Environment Screen -->
-                <div>
-                    <img class="project-image" src="image_e4e52062.png" alt="EVE-NG Network Topology Map">
-                    <div class="image-caption">📊 EVE-NG Simulation Environment Topology</div>
-                </div>
-                
-                <!-- Right Column: HTML Native Vector Architecture Map -->
-                <div>
-                    <svg viewBox="0 0 500 330" style="width:100%; height:auto; border:1px solid var(--border-color); border-radius:6px; background:#0d1117; display:block;">
-                        <!-- Title Info -->
-                        <text x="15" y="25" fill="#fff" font-family="sans-serif" font-size="12" font-weight="bold">LAB ARCHITECTURAL MAP</text>
-                        <text x="15" y="40" fill="#58a6ff" font-family="sans-serif" font-size="9">Target IP: 192.168.60.131 (Metasploitable 2)</text>
-                        <line x1="15" y1="48" x2="485" y2="48" stroke="#30363d" stroke-width="1"/>
-                        
-                        <!-- Zone A -->
-                        <rect x="15" y="65" width="145" height="150" rx="4" fill="#161b22" stroke="#f85149" stroke-width="1" stroke-dasharray="3 3"/>
-                        <text x="25" y="80" fill="#f85149" font-family="sans-serif" font-size="9" font-weight="bold">SITE A: ATTACK ZONE</text>
-                        <text x="25" y="95" fill="#8b949e" font-family="sans-serif" font-size="8">Subnet: 10.1.1.0/24</text>
-                        <rect x="25" y="110" width="125" height="40" rx="3" fill="#21262d" stroke="#30363d"/>
-                        <text x="35" y="125" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">Kali Linux-VM</text>
-                        <text x="35" y="140" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 10.1.1.10</text>
-                        
-                        <rect x="25" y="160" width="125" height="45" rx="3" fill="#21262d" stroke="#30363d"/>
-                        <text x="35" y="175" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">pfSense GW</text>
-                        <text x="35" y="190" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 10.1.1.1</text>
-                        
-                        <!-- Zone B -->
-                        <rect x="175" y="65" width="150" height="150" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
-                        <text x="185" y="80" fill="#58a6ff" font-family="sans-serif" font-size="9" font-weight="bold">SITE B: TARGET LAN & SIEM</text>
-                        <text x="185" y="95" fill="#8b949e" font-family="sans-serif" font-size="8">Subnet: 192.168.60.0/24</text>
-                        
-                        <rect x="185" y="110" width="130" height="40" rx="3" fill="#1f1712" stroke="#d45500" stroke-width="1.5"/>
-                        <text x="195" y="123" fill="#ff9955" font-family="sans-serif" font-size="9" font-weight="bold">Metasploitable 2</text>
-                        <text x="195" y="138" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">192.168.60.131</text>
-                        
-                        <rect x="185" y="160" width="130" height="45" rx="3" fill="#21262d" stroke="#30363d"/>
-                        <text x="195" y="173" fill="#fff" font-family="sans-serif" font-size="8" font-weight="bold">SAMAMTV Web</text>
-                        <text x="195" y="188" fill="#8b949e" font-family="sans-serif" font-size="8">IP: 192.168.60.50</text>
 
-                        <!-- Zone C -->
-                        <rect x="340" y="65" width="145" height="150" rx="4" fill="#161b22" stroke="#ff7b72" stroke-width="1" stroke-dasharray="3 3"/>
+            <h4>Sample Splunk Threat Alert Pattern (Port-Scan Engine):</h4>
+            <pre class="code-block">index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" | bucket _time span=1m | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip | where unique_ports_scanned > 20</pre>
+
+            <div class="project-actions">
+                <a href="https://github.com" class="btn" target="_blank">🔍 Audit Splunk Pipeline Configs</a>
+                <a href="https://github.com" class="btn" target="_blank">💻 View Main Repo Files</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kofi Okrah Agyei | Connection Points: <a href="mailto:kofiagyei79@gmail.com">kofiagyei79@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
