@@ -4,7 +4,7 @@ Welcome to my cybersecurity project portfolio. This repository showcases my tech
 
 ### 🌐 Live Portfolio Website
 
-View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwiw0unAk9WWAxV4EVkFHSvVMb4Qg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw3CymEgo9MAdNlheDHbovi9&ust=1788619097581000) 
+View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwiQvqDNl9WWAxWhLFkFHazBJuUQg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw3NiXRi71I1tbriZVfqN_yt&ust=1788620197377000) 
 
 ### 🛠️ Technical Security Skills & Tools
 
@@ -24,22 +24,27 @@ This project involved simulating a real-world cyberattack on a completely blind 
 
 ### Core Phases Execution
 
-* **Reconnaissance & Scanning (Nmap)** 
+* **1. Reconnaissance & Scanning (Nmap)** 
 
   * Used Nmap to perform network discovery and map out active hosts.
   * Conducted service version detection (-sV) and OS fingerprinting (-O) to identify open ports and potential entry points.
-* **Packet Analysis & Monitoring (Wireshark)** 
+* **2. Packet Analysis & Monitoring (Wireshark)** 
 
   * Captured live network traffic using Wireshark during the initial scanning phases.
   * Analyzed protocols and packet payloads to identify unencrypted text or unusual traffic patterns.
-* **Vulnerability Exploitation (Metasploit)** 
-* Create actionable remediation steps to patch the exploited vulnerabilities and harden the system.).
+* **3. Vulnerability Exploitation (Metasploit)** 
+
   * Cross-referenced open port services against known CVE databases.
   * Utilized the Metasploit Framework to select, configure, and execute precise payloads against identified system vulnerabilities.
-* **Documentation & Reporting** 
+* **4. Documentation & Reporting** 
 
   * Authored comprehensive security documentation detailing the step-by-step attack chain.
   * Created actionable remediation steps to patch the exploited vulnerabilities and harden the system.
+* **5. Blue Team Mitigation & Telemetry Engineering** 
+
+  * Deployed a data logging pipeline to forward internal host operating system events and raw syslog authentication streams directly out to a centralized SIEM instance over port 514.
+  * Simulated the initial nmap -A phase to map the exact traffic spikes, port hunting velocity, and packet behaviors left behind by scanning tools.
+  * Monitored system log anomalies during the Metasploit execution phase to identify abnormal process spawning and unexpected privilege escalations.
 
 ### 🟣 Purple Team Integration (Active Engineering Phase)
 
@@ -99,7 +104,7 @@ index=network_logs sourcetype=linux_secure src_ip="10.1.1.10" dest_ip="192.168.6
 | stats count by src_ip, dest_ip, user 
 | where count > 5
 
-
+Use code with caution.
 
 ### **Alert 3: Web Exploitation (Directory Traversal / Command Injection)**
 
@@ -110,7 +115,7 @@ splunk
 index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="etc/passwd" OR uri_path="cmd.exe" OR uri_path="bin/sh") 
 | table _time, src_ip, uri_path, status
 
-
+Use code with caution.
 
 ### 📂 Project 2 Assets
 
@@ -119,6 +124,6 @@ index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR
 ### 📩 Contact & Connect
 
 * **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwiw0unAk9WWAxV4EVkFHSvVMb4Qg5wRegcIAAgSEMsB&opi=89978449&cd&psig=AOvVaw3CymEgo9MAdNlheDHbovi9&ust=1788619097581000)
+* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwiQvqDNl9WWAxWhLFkFHazBJuUQg5wRegcIAAgSENwB&opi=89978449&cd&psig=AOvVaw3NiXRi71I1tbriZVfqN_yt&ust=1788620197377000)
 
 © 2026 Kofi Agyei
