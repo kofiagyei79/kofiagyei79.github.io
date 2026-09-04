@@ -33,7 +33,7 @@ This project involved simulating a real-world cyberattack on a completely blind 
   * Captured live network traffic using Wireshark during the initial scanning phases.
   * Analyzed protocols and packet payloads to identify unencrypted text or unusual traffic patterns.
 * **Vulnerability Exploitation (Metasploit)** 
-
+* Create actionable remediation steps to patch the exploited vulnerabilities and harden the system.).
   * Cross-referenced open port services against known CVE databases.
   * Utilized the Metasploit Framework to select, configure, and execute precise payloads against identified system vulnerabilities.
 * **Documentation & Reporting** 
