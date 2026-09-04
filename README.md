@@ -124,6 +124,6 @@ Use code with caution.
 ### 📩 Contact & Connect
 
 * **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwiQvqDNl9WWAxWhLFkFHazBJuUQg5wRegcIAAgSENwB&opi=89978449&cd&psig=AOvVaw3NiXRi71I1tbriZVfqN_yt&ust=1788620197377000)
+* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwiA4aONmNWWAxWOLVkFHSnDB-gQg5wRegYIAAgRECw&opi=89978449&cd&psig=AOvVaw1mOxYaXWqed0OLXMM2Oa3a&ust=1788620331706000)
 
 © 2026 Kofi Agyei
