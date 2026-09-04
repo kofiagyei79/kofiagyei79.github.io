@@ -4,7 +4,7 @@ Welcome to my cybersecurity project portfolio. This repository showcases my tech
 
 ### 🌐 Live Portfolio Website
 
-View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwj41rzqkNWWAxXED1kFHdwsObUQg5wRegYIAAgREAs&opi=89978449&cd&psig=AOvVaw3tLlpoKQmt9-g4qCve12yA&ust=1788618379689000) 
+View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwjelq71kdWWAxUaEVkFHa1YFrYQg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw2Mtc0znbd2cs8iiTAG4nOf&ust=1788618670880000) 
 
 ### 🛠️ Technical Security Skills & Tools
 
@@ -24,19 +24,19 @@ This project involved simulating a real-world cyberattack on a completely blind 
 
 ### Core Phases Execution
 
-1. **Reconnaissance & Scanning (Nmap)** 
+* **Reconnaissance & Scanning (Nmap)** 
 
   * Used Nmap to perform network discovery and map out active hosts.
   * Conducted service version detection (-sV) and OS fingerprinting (-O) to identify open ports and potential entry points.
-2. **Packet Analysis & Monitoring (Wireshark)** 
+* **Packet Analysis & Monitoring (Wireshark)** 
 
   * Captured live network traffic using Wireshark during the initial scanning phases.
   * Analyzed protocols and packet payloads to identify unencrypted text or unusual traffic patterns.
-3. **Vulnerability Exploitation (Metasploit)** 
+* **Vulnerability Exploitation (Metasploit)** 
 
   * Cross-referenced open port services against known CVE databases.
   * Utilized the Metasploit Framework to select, configure, and execute precise payloads against identified system vulnerabilities.
-4. **Documentation & Reporting** 
+* **Documentation & Reporting** 
 
   * Authored comprehensive security documentation detailing the step-by-step attack chain.
   * Created actionable remediation steps to patch the exploited vulnerabilities and harden the system.
@@ -58,16 +58,16 @@ This project demonstrates the design, deployment, and testing of a multi-subnet 
 
 ### Core Phases Execution
 
-1. **Network Boundary Segmentation & Zero-Trust Architecture** 
+* **Network Boundary Segmentation & Zero-Trust Architecture** 
 
   * Implemented a multi-interface pfSense gateway to enforce strict isolation between production assets, DMZs, and remote offices.
   * Established an encrypted IPsec Site-to-Site VPN tunnel to securely route traffic from remote enclaves into the corporate backbone.
-2. **Offensive Security Assessments (Red Team)** 
+* **Offensive Security Assessments (Red Team)** 
 
   * **Reconnaissance:** Executed targeted Nmap discovery scans from the remote Kali Linux node (10.1.1.10) across the VPN to find open services inside the LAN.
   * **Exploitation & Lateral Movement:** Compromised unpatched application-layer services on the target LAN machine (192.168.60.131) and established pivoting routes to audit the isolated DMZ zone (10.3.3.10).
   * **Web Security Testing:** Used directory enumeration and traffic analysis to identify input parsing bugs and SQL Injection (SQLi) pathways on the corporate SAMAMTV web asset (192.168.60.50).
-3. **Defensive Security Analytics & Detection Engineering (Blue Team)** 
+* **Defensive Security Analytics & Detection Engineering (Blue Team)** 
 
   * **Log Ingestion Pipeline:** Configured Splunk Universal Forwarders on endpoints to harvest Linux authentication records (linux_secure), web daemon streams (access_combined), and host shell histories (bash_history).
   * **Threat Detection Architecture:** Developed custom Splunk Processing Language (SPL) rules to trigger high-fidelity alerts for network port scanning baselines, active SSH brute-force handshakes, and SQL injection strings.
@@ -119,6 +119,6 @@ Use code with caution.
 ### 📩 Contact & Connect
 
 * **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwj41rzqkNWWAxXED1kFHdwsObUQg5wRegcIAAgREMsB&opi=89978449&cd&psig=AOvVaw3tLlpoKQmt9-g4qCve12yA&ust=1788618379689000)
+* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwjelq71kdWWAxUaEVkFHa1YFrYQg5wRegcIAAgSEMsB&opi=89978449&cd&psig=AOvVaw2Mtc0znbd2cs8iiTAG4nOf&ust=1788618670880000)
 
 © 2026 Kofi Agyei
