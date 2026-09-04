@@ -47,6 +47,12 @@ This project involved simulating a real-world cyberattack on a completely blind 
   * Monitored system log anomalies during the Metasploit execution phase to identify abnormal process spawning and unexpected privilege escalations.
 
 ### 🟣 Purple Team Integration (Active Engineering Phase)
+### 🟣 Purple Team Integration (Active Engineering Phase)
+Bridging Offensive Hacking with Defensive SIEM Monitoring. To simulate realistic enterprise workflows, the attack vectors executed in this Black Box Capstone (including Nmap scanning patterns and exploitation paths) are actively being used as the baseline testing material for Project 2. This allows me to capture live attack telemetry and engineer the exact Splunk SIEM detection rules listed below.
+
+#### 🗺️ Purple Team Lab Network Topology
+Below is the architectural blueprint transitioning the standalone offensive testing lab into an integrated Purple Team Pipeline. The environment operates on a unified network bracket segment using isolated host-only adapters to ensure zero leak execution.
+
 
 **Bridging Offensive Hacking with Defensive SIEM Monitoring**
 To simulate realistic enterprise workflows, the attack vectors executed in this Black Box Capstone (including Nmap scanning patterns and exploitation paths) are actively being used as the baseline testing material for Project 2. This allows me to capture live attack telemetry and engineer the exact Splunk SIEM detection rules listed below. 
