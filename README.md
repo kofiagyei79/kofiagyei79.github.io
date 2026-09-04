@@ -4,7 +4,7 @@ Welcome to my cybersecurity project portfolio. This repository showcases my tech
 
 ### 🌐 Live Portfolio Website
 
-View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwjelq71kdWWAxUaEVkFHa1YFrYQg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw2Mtc0znbd2cs8iiTAG4nOf&ust=1788618670880000) 
+View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwi37JLEktWWAxVYEFkFHRU0Bl4Qg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw0Rc1cGgahDTy1ZyEtNjQMc&ust=1788618836091000) 
 
 ### 🛠️ Technical Security Skills & Tools
 
@@ -87,7 +87,7 @@ index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50
 | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip 
 | where unique_ports_scanned > 20
 
-Use code with caution.
+
 
 ### **Alert 2: Credential Stuffing (SSH Brute Force Detection)**
 
@@ -110,7 +110,6 @@ splunk
 index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="etc/passwd" OR uri_path="cmd.exe" OR uri_path="bin/sh") 
 | table _time, src_ip, uri_path, status
 
-Use code with caution.
 
 ### 📂 Project 2 Assets
 
@@ -119,6 +118,6 @@ Use code with caution.
 ### 📩 Contact & Connect
 
 * **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwjelq71kdWWAxUaEVkFHa1YFrYQg5wRegcIAAgSEMsB&opi=89978449&cd&psig=AOvVaw2Mtc0znbd2cs8iiTAG4nOf&ust=1788618670880000)
+* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwi37JLEktWWAxVYEFkFHRU0Bl4Qg5wRegcIAAgSEMsB&opi=89978449&cd&psig=AOvVaw0Rc1cGgahDTy1ZyEtNjQMc&ust=1788618836091000)
 
 © 2026 Kofi Agyei
