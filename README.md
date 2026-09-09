@@ -97,40 +97,37 @@ splunk
 index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" 
 | bucket _time span=1m 
 | stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip 
-| where unique_ports_scanned > 20
 
-Use code with caution.
 
-### **Alert 2: Credential Stuffing (SSH Brute Force Detection)**
+### Alert 2: Credential Stuffing (SSH Brute Force Detection)
+Tracks anomalous authentication failure rates on the target host to mitigate potential root-level access compromises.
 
-Tracks anomalous authentication failure rates on the target host to mitigate potential root-level access compromises. 
-
-splunk
-
+```splunk
 index=network_logs sourcetype=linux_secure src_ip="10.1.1.10" dest_ip="192.168.60.131" "Failed password" 
 | stats count by src_ip, dest_ip, user 
 | where count > 5
+```
 
-Use code with caution.
+### Alert 3: Web Exploitation (Directory Traversal / Command Injection)
+Scans web daemon access events for application-layer exploit strings targeting the corporate application layer.
 
-### **Alert 3: Web Exploitation (Directory Traversal / Command Injection)**
-
-Scans web daemon access events for application-layer exploit strings targeting the corporate application layer. 
-
-splunk
-
+```splunk
 index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="etc/passwd" OR uri_path="cmd.exe" OR uri_path="bin/sh") 
 | table _time, src_ip, uri_path, status
-
-Use code with caution.
+```
 
 ### 📂 Project 2 Assets
 
-* 💻 **Source Code/Scripts:** View Splunk inputs.conf & savedsearches.conf
+[![Project 2 Presentation Preview](./project2-presentation-thumbnail.png)](./Presentation2_Enterprise_Splunk_SIEM.pptx)
+
+* 📊 **Project Presentation:** [Download Project 2 PowerPoint Presentation](./Presentation2_Enterprise_Splunk_SIEM.pptx)
+* 💻 **Configuration Source Code:** [View Splunk inputs.conf & savedsearches.conf](./defensive-blue-team/splunk/configs/)
+* 📄 **Engineering Report:** [Download Capstone Engineering Report PDF](./Cybersecurity_Capstone_Engineering_Report.pdf)
 
 ### 📩 Contact & Connect
 
 * **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](/url?sa=i&source=web&rct=j&url=https://github.com/kofiagyei79&ved=2ahUKEwiA4aONmNWWAxWOLVkFHSnDB-gQg5wRegYIAAgRECw&opi=89978449&cd&psig=AOvVaw1mOxYaXWqed0OLXMM2Oa3a&ust=1788620331706000)
+* **GitHub:** [kofiagyei79](https://github.com/kofiagyei79)
 
 © 2026 Kofi Agyei
+
