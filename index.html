@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kofi Agyei | Enterprise Cybersecurity Portfolio</title>
+    <title>Kofi Okrah Agyei | Enterprise Cybersecurity Portfolio</title>
     <style>
         :root {
             --bg-main: #0B0F19;
@@ -138,7 +138,7 @@
             font-size: 0.85rem;
             color: #E6EDF3;
             margin-bottom: 1rem;
-            white-space: pre;
+            white-space: pre-wrap;
         }
 
         footer {
@@ -183,7 +183,26 @@
             <span class="project-badge badge-red">Offensive Red Team</span>
             <h3>🚀 Project 1: Black Box Penetration Testing Simulation</h3>
             
-                  <!-- PROJECT 2 CARD -->
+            <img src="image_e1725831.png" alt="Project 1 Infrastructure Topology and Hacking Operations" style="width: 100%; max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin: 1rem 0;">
+
+            <p>Authorized compromise analysis targeted against a blind system node to simulate real-world exploit strings, execute standard lateral environment transitions, and bypass sandbox boundary mechanisms.</p>
+            
+            <h4>Core Engagement Phases:</h4>
+            <ul>
+                <li><strong>Reconnaissance & Scan:</strong> Exploited active discovery arrays via Nmap platform engines to locate service hooks.</li>
+                <li><strong>Credential Extraction:</strong> Abused unauthenticated local guest SMB directories to recover cleartext configuration leaks (`deets.txt`).</li>
+                <li><strong>Reverse Control Chain:</strong> Attached automated exploitation handlers inside web management dependencies via Metasploit interfaces to drop interactive reverse payloads.</li>
+                <li><strong>Sandbox Isolation Escape:</strong> Neutralized confined local shells (`rbash`) cleanly using dynamic runtime library code injections.</li>
+            </ul>
+
+            <div class="project-actions">
+                <a href="Presentation1Black Box system testing.pptx" class="btn" download="Presentation1Black Box system testing.pptx">📥 Download Capstone PPTX</a>
+                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
+                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
+            </div>
+        </article>
+
+        <!-- PROJECT 2 CARD -->
         <article class="project-card">
             <span class="project-badge badge-hybrid">Defensive Detection & SIEM Engineering</span>
             <h3>🚀 Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering</h3>
@@ -203,32 +222,3 @@
             <h4>🛡️ Production Detection Engineering Snippets (Splunk SPL):</h4>
             
             <h5>Alert 1: Scanner and Gobuster Enumeration Traffic</h5>
-            <div class="code-block">index=web_logs sourcetype=access_combined dest_port=3000 (status=404 OR status=403)
-| bucket _time span=1m 
-| stats count as error_count, dc(uri_path) as unique_directories_tested, values(http_user_agent) as user_agents by _time, src_ip, dest_ip
-| where unique_directories_tested > 30 OR searchmatch("gobuster") OR searchmatch("nikto")</div>
-
-            <h5>Alert 2: Sensitive Data Exposure & Null Byte Bypass Verification</h5>
-            <div class="code-block">index=web_logs sourcetype=access_combined dest_ip="172.18.0.2" OR dest_ip="192.168.60.131"
-| status=200 AND (uri_path="*.bak*" OR uri_path="*.md*" OR uri_query="*%2500*")
-| table _time, src_ip, dest_ip, uri_path, uri_query, status</div>
-
-            <h5>Alert 3: Samba RCE Exploitation (Metasploit Usermap Script Payload)</h5>
-            <div class="code-block">index=network_logs sourcetype=linux_secure ("usermap_script" OR "accepted password for root" OR (host="metasploitable" AND "uid=0(root)"))
-| stats count by _time, host, src_ip, user, process</div>
-
-            <div class="project-actions" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="Presentation2_Enterprise_Splunk_SIEM.pptx" class="btn" download="Presentation2_Enterprise_Splunk_SIEM.pptx">📥 Download Project 2 PPTX</a>
-                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
-                <a href="./defensive-blue-team/splunk/configs/" class="btn" target="_blank">⚙️ View Code Utility</a>
-            </div>
-        </article>
-    </main>
-
-    <footer>
-        <p><strong>Email:</strong> kofiagyei79@gmail.com | <strong>GitHub:</strong> <a href="https://github.com" target="_blank" style="color: var(--accent-blue);">kofiagyei79</a></p>
-        <p>© 2026 Kofi Okrah Agyei</p>
-    </footer>
-</body>
-</html>
- "Fix: Complete missing HTML tags and configure interactive Project 2 asset links"
