@@ -202,19 +202,7 @@
             </div>
         </article>
 
-                       <li><strong>Credential Extraction:</strong> Abused unauthenticated local guest SMB directories to recover cleartext configuration leaks (`deets.txt`).</li>
-                <li><strong>Reverse Control Chain:</strong> Attached automated exploitation handlers inside web management dependencies via Metasploit interfaces to drop interactive reverse payloads.</li>
-                <li><strong>Sandbox Isolation Escape:</strong> Neutralized confined local shells (`rbash`) cleanly using dynamic runtime library code injections.</li>
-            </ul>
-
-            <div class="project-actions">
-                <a href="Presentation1Black Box system testing.pptx" class="btn" download="Presentation1Black Box system testing.pptx">📥 Download Capstone PPTX</a>
-                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
-                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
-            </div>
-        </article>
-
-              <!-- PROJECT 2 CARD -->
+        <!-- PROJECT 2 CARD -->
         <article class="project-card">
             <span class="project-badge badge-hybrid">Defensive Detection &amp; SIEM Engineering</span>
             <h3>🚀 Project 2: Enterprise Hybrid Lab &amp; Splunk SIEM Engineering</h3>
@@ -230,57 +218,6 @@
                 <li><strong>Web Security &amp; Directory Enumeration:</strong> Conducted directory traversal testing and aggressive discovery sweeps with Gobuster against an isolated containerized target running OWASP Juice Shop (172.18.0.2).</li>
                 <li><strong>Log Ingestion Pipeline &amp; Detection Engineering (Blue Team):</strong> Configured Splunk Universal Forwarders to harvest kernel authentication logs (<code>linux_secure</code>), web daemon streams (<code>access_combined</code>), and host shell histories (<code>bash_history</code>).</li>
             </ul>
-            </div>
-        </article> <!-- THIS IS THE END OF PROJECT 2 -->
-
-    </main>
 
             <h4>🛡️ Production Detection Engineering Snippets (Splunk SPL):</h4>
             <h5>Alert 1: Scanner and Gobuster Enumeration Traffic</h5>
-            <div class="code-block">index=web_logs sourcetype=access_combined 
-| status=200 OR status=404 
-| http_user_agent="*Gobuster*" OR http_user_agent="*Nmap*"
-| stats count by src_ip, uri, http_user_agent</div>
-
-            <div class="project-actions">
-                <a href="Presentation2Enterprise Hybrid Lab.pptx" class="btn" download="PROJECT 2 - Enterprise Hybrid Lab.pptx">📥 Download Project 2 PPTX</a>
-                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Project 2 Report</a>
-                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
-            </div>
-        </article>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Kofi Okrah Agyei. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
-  
-        <!-- PROJECT 3 CARD -->
-        <article class="project-card">
-            <span class="project-badge badge-red">EDR &amp; Threat Hunting</span>
-            <h3>🚀 Project 3: Enterprise Endpoint Detection &amp; SentinelOne Threat Hunting</h3>
-            
-            <p>Simulated an advanced endpoint compromise involving credential dumping and process injection on a Windows Server node. Configured telemetry streams to ingest endpoint events, then utilized SentinelOne Deep Visibility query language to trace the adversary's execution path and map malicious process behaviors.</p>
-            
-            <h4>Core Engagement Phases:</h4>
-            <ul>
-                <li><strong>Malware Execution &amp; Endpoint Compromise:</strong> Simulated an ad-hoc local adversary script executing process hollowing techniques to inject malicious payloads into trusted windows binaries.</li>
-                <li><strong>Credential Dumping Simulation:</strong> Orchestrated an unauthorized memory readout targeting LSASS to simulate cleartext credential harvesting attempts.</li>
-                <li><strong>Threat Hunting &amp; Query Architecture:</strong> Crafted custom SentinelOne Deep Visibility query strings to isolate compromised parent processes, identify unusual network sockets, and pinpoint persistent registry modifications.</li>
-                <li><strong>Incident Mitigation &amp; Containment:</strong> Executed platform response playbooks to network-isolate the affected endpoint, terminate active rogue processes, and initiate system remediation rollbacks.</li>
-            </ul>
-
-            <h4>🛡️ SentinelOne Deep Visibility Threat Hunting Queries:</h4>
-            <h5>Query 1: Detecting LSASS Memory Access Logs</h5>
-            <div class="code-block">ObjectType = "Process" AND TargetProcess.Name = "lsass.exe" 
-| choice (Process.Name != "svchost.exe" AND Process.Name != "taskmgr.exe") 
-| fields Process.Name, Process.Path, Process.CmdLine, TargetProcess.Name</div>
-
-            <div class="project-actions">
-                <a href="Presentation3SentinelOne Threat Hunting.pptx" class="btn" download="PROJECT 3 - SentinelOne Threat Hunting.pptx">📥 Download Project 3 PPTX</a>
-                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Project 3 Report</a>
-                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
-            </div>
-        </article>
