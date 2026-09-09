@@ -213,12 +213,11 @@
             
             <h4>Core Engagement Phases:</h4>
             <ul>
-                <li><strong>Network Boundary Segmentation & Zero-Trust Architecture:</strong> Implemented a multi-interface pfSense gateway to enforce strict isolation between production assets, DMZs, and remote offices while establishing an encrypted IPsec Site-to-Site VPN tunnel.</li>
+                <li><strong>Network Boundary Segmentation &amp; Zero-Trust Architecture:</strong> Implemented a multi-interface pfSense gateway to enforce strict isolation between production assets, DMZs, and remote offices while establishing an encrypted IPsec Site-to-Site VPN tunnel.</li>
                 <li><strong>Offensive Security Assessments (Red Team Integration):</strong> Executed targeted Nmap discovery sweeps across the VPN to compromise application services on the target LAN machine (192.168.60.131) via a Samba Usermap Script RCE exploit.</li>
-                <li><strong>Web Security & Directory Enumeration:</strong> Conducted directory traversal testing and aggressive discovery sweeps with Gobuster against an isolated containerized target running OWASP Juice Shop (172.18.0.2).</li>
-                <li><strong>Log Ingestion Pipeline & Detection Engineering (Blue Team):</strong> Configured Splunk Universal Forwarders to harvest kernel authentication logs (`linux_secure`), web daemon streams (`access_combined`), and host shell histories (`bash_history`).</li>
+                <li><strong>Web Security &amp; Directory Enumeration:</strong> Conducted directory traversal testing and aggressive discovery sweeps with Gobuster against an isolated containerized target running OWASP Juice Shop (172.18.0.2).</li>
+                <li><strong>Log Ingestion Pipeline &amp; Detection Engineering (Blue Team):</strong> Configured Splunk Universal Forwarders to harvest kernel authentication logs (<code>linux_secure</code>), web daemon streams (<code>access_combined</code>), and host shell histories (<code>bash_history</code>).</li>
             </ul>
 
             <h4>🛡️ Production Detection Engineering Snippets (Splunk SPL):</h4>
-            
             <h5>Alert 1: Scanner and Gobuster Enumeration Traffic</h5>
