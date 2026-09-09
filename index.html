@@ -125,106 +125,57 @@
             color: var(--accent-blue);
             padding: 0.6rem 1.2rem;
             border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-right: 0.75rem;
-            margin-top: 0.5rem;
-            transition: background-color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #30363D;
-            color: var(--text-bright);
-        }
-
-        .code-block {
-            background-color: #0d1117;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1rem;
-            overflow-x: auto;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.85rem;
-            color: #E6EDF3;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #7d8590;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.85rem;
-        }
-
-        a { color: var(--accent-blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="header-container">
-            <h1>Kofi Okrah Agyei</h1>
-            <p>Cybersecurity Analyst | Pentester | Ethical Hacker</p>
-        </div>
-    </header>
-
-    <main>
-        <!-- TECHNICAL TOOLKIT SECTION -->
-        <section class="skills-section">
-            <h2>🛠️ Core Technical Security Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">SentinelOne Deep Visibility</div>
-                <div class="skill-tag">Google SecOps SIEM (YARA-L)</div>
-                <div class="skill-tag">Splunk Enterprise Architecture</div>
-                <div class="skill-tag">AWS Cloud Security &amp; Wiz</div>
-                <div class="skill-tag">Zscaler &amp; Proofpoint Inspection</div>
-                <div class="skill-tag">pfSense Firewall Engineering</div>
-                <div class="skill-tag">L2/L3 Complex Incident Response</div>
-                <div class="skill-tag">Python &amp; PowerShell Automation</div>
-            </div>
-        </section>
-
-        <!-- PROJECT 1 CARD -->
+                    <!-- PROJECT 2 CARD -->
         <article class="project-card">
-            <span class="project-badge badge-red">Offensive Red Team</span>
-            <h3>🚀 Project 1: Black Box Penetration Testing Simulation</h3>
+            <span class="project-badge badge-hybrid">Defensive Detection & SIEM Engineering</span>
+            <h3>🚀 Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering</h3>
             
             <!-- EMBEDDED TOPOLOGY PICTURE COMPONENT -->
-            <img src="image_e1725831.png" alt="Project 1 Infrastructure Topology and Hacking Operations" style="width: 100%; max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin: 1rem 0;">
+            <img src="network-topology.png" alt="Project 2 Enterprise Hybrid Topology and Splunk Telemetry Ingestion Architecture" style="width: 100%; max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin: 1rem 0;">
 
-            <p>Authorized compromise analysis targeted against a blind system node to simulate real-world exploit strings, execute standard lateral environment transitions, and bypass sandbox boundary mechanisms.</p>
+            <p>Design, deployment, and testing of a multi-subnet corporate architecture built inside EVE-NG. Evaluated perimeter defensive capabilities by routing Red Team exploitation sequences across a site-to-site VPN tunnel while aggregating system, firewall, and web daemon application logs into a central Splunk Enterprise SIEM instance.</p>
             
             <h4>Core Engagement Phases:</h4>
             <ul>
-                <li><strong>Reconnaissance & Scan:</strong> Exploited active discovery arrays via Nmap platform engines to locate service hooks.</li>
-                <li><strong>Credential Extraction:</strong> Abused unauthenticated local guest SMB directories to recover cleartext configuration leaks (`deets.txt`).</li>
-                <li><strong>Reverse Control Chain:</strong> Attached automated exploitation handlers inside web management dependencies via Metasploit interfaces to drop interactive reverse payloads.</li>
-                <li><strong>Sandbox Isolation Escape:</strong> Neutralized confined local shells (`rbash`) cleanly using dynamic runtime library code injections.</li>
+                <li><strong>Network Boundary Segmentation & Zero-Trust Architecture:</strong> Implemented a multi-interface pfSense gateway to enforce strict isolation between production assets, DMZs, and remote offices while establishing an encrypted IPsec Site-to-Site VPN tunnel.</li>
+                <li><strong>Offensive Security Assessments (Red Team Integration):</strong> Executed targeted Nmap discovery sweeps across the VPN to compromise application services on the target LAN machine (192.168.60.131) via a Samba Usermap Script RCE exploit.</li>
+                <li><strong>Web Security & Directory Enumeration:</strong> Conducted directory traversal testing and aggressive discovery sweeps with Gobuster against an isolated containerized target running OWASP Juice Shop (172.18.0.2).</li>
+                <li><strong>Log Ingestion Pipeline & Detection Engineering (Blue Team):</strong> Configured Splunk Universal Forwarders to harvest kernel authentication logs (`linux_secure`), web daemon streams (`access_combined`), and host shell histories (`bash_history`).</li>
             </ul>
 
-            <div class="project-actions">
-                <a href="Presentation1Black Box system testing.pptx" class="btn" download="Presentation1Black Box system testing.pptx">📥 Download Capstone PPTX</a>
+            <h4>🛡️ Production Detection Engineering Snippets (Splunk SPL):</h4>
+            
+            <h5>Alert 1: Scanner and Gobuster Enumeration Traffic</h5>
+            <div class="code-block">
+index=web_logs sourcetype=access_combined dest_port=3000 (status=404 OR status=403)
+| bucket _time span=1m 
+| stats count as error_count, dc(uri_path) as unique_directories_tested, values(http_user_agent) as user_agents by _time, src_ip, dest_ip
+| where unique_directories_tested > 30 OR searchmatch("gobuster") OR searchmatch("nikto")
+            </div>
+
+            <h5>Alert 2: Sensitive Data Exposure & Null Byte Bypass Verification</h5>
+            <div class="code-block">
+index=web_logs sourcetype=access_combined dest_ip="172.18.0.2" OR dest_ip="192.168.60.131"
+| status=200 AND (uri_path="*.bak*" OR uri_path="*.md*" OR uri_query="*%2500*")
+| table _time, src_ip, dest_ip, uri_path, uri_query, status
+            </div>
+
+            <h5>Alert 3: Samba RCE Exploitation (Metasploit Usermap Script Payload)</h5>
+            <div class="code-block">
+index=network_logs sourcetype=linux_secure ("usermap_script" OR "accepted password for root" OR (host="metasploitable" AND "uid=0(root)"))
+| stats count by _time, host, src_ip, user, process
+            </div>
+
+            <div class="project-actions" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="Presentation2_Enterprise_Splunk_SIEM.pptx" class="btn" download="Presentation2_Enterprise_Splunk_SIEM.pptx">📥 Download Project 2 PPTX</a>
                 <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
-                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
+                <a href="./defensive-blue-team/splunk/configs/" class="btn" target="_blank">⚙️ View Code Utility</a>
             </div>
         </article>
-
-        <!-- PROJECT 2 CARD -->
-        <article class="project-card">
-            <span class="project-badge badge-hybrid">Hybrid Operations</span>
-            <span class="project-badge badge-progress">🛠️ Range Implementation Phase</span>
-            <h3>🚀 Project 2: Enterprise Virtual Range &amp; Splunk / Google SecOps Infrastructure</h3>
-            
-            <!-- DETAILED EVE-NG TOPOLOGY DIAGRAM -->
-            <img src="image_d9a34027.png" alt="Project 2 Enterprise Cyber Range Topology" style="width: 100%; max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin: 1rem 0;">
-
-            <p>Configuration blueprint for an isolated hybrid corporate environment mapped inside virtual emulation spaces (EVE-NG) and integrated into an AWS Cloud node framework. This multi-subnet range acts as an active validation sandbox designed to execute adversarial ethical hacking, simulate web app penetration vectors, and engineer L2/L3 log pipelines across leading enterprise security stacks.</p>
-            
-            <h4>Planned Cyber Range Capabilities &amp; Infrastructure Stack:</h4>
-            <ul>
-                <li><strong>EDR Root Cause Investigations:</strong> Tracking malicious process lineage hierarchies, payload delivery drops, and sandbox bypass attempts using SentinelOne Deep Visibility consoles.</li>
-                <li><strong>Multi-Engine Detection Engineering:</strong> Correlating perimeter firewall streams, Linux daemon logs, and application layers into both Splunk Enterprise pipelines and Google SecOps SIEM (YARA-L framework).</li>
-                <li><strong>Perimeter and Boundary Controls:</strong> Segmenting transit zones via multi-interface pfSense edge gateways, traffic path analysis, and routing rules designed to isolate threat actors.</li>
+    </main>
+    <footer>
+        <p><strong>Email:</strong> kofiagyei79@gmail.com | <strong>GitHub:</strong> <a href="https://github.com" target="_blank" style="color: var(--accent-blue);">kofiagyei79</a></p>
+        <p>© 2026 Kofi Okrah Agyei</p>
+    </footer>
+</body>
+</html>
