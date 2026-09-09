@@ -202,6 +202,18 @@
             </div>
         </article>
 
+                       <li><strong>Credential Extraction:</strong> Abused unauthenticated local guest SMB directories to recover cleartext configuration leaks (`deets.txt`).</li>
+                <li><strong>Reverse Control Chain:</strong> Attached automated exploitation handlers inside web management dependencies via Metasploit interfaces to drop interactive reverse payloads.</li>
+                <li><strong>Sandbox Isolation Escape:</strong> Neutralized confined local shells (`rbash`) cleanly using dynamic runtime library code injections.</li>
+            </ul>
+
+            <div class="project-actions">
+                <a href="Presentation1Black Box system testing.pptx" class="btn" download="Presentation1Black Box system testing.pptx">📥 Download Capstone PPTX</a>
+                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Formal Engineering Report</a>
+                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
+            </div>
+        </article>
+
         <!-- PROJECT 2 CARD -->
         <article class="project-card">
             <span class="project-badge badge-hybrid">Defensive Detection &amp; SIEM Engineering</span>
@@ -221,3 +233,22 @@
 
             <h4>🛡️ Production Detection Engineering Snippets (Splunk SPL):</h4>
             <h5>Alert 1: Scanner and Gobuster Enumeration Traffic</h5>
+            <div class="code-block">index=web_logs sourcetype=access_combined 
+| status=200 OR status=404 
+| http_user_agent="*Gobuster*" OR http_user_agent="*Nmap*"
+| stats count by src_ip, uri, http_user_agent</div>
+
+            <div class="project-actions">
+                <a href="Presentation2Enterprise Hybrid Lab.pptx" class="btn" download="PROJECT 2 - Enterprise Hybrid Lab.pptx">📥 Download Project 2 PPTX</a>
+                <a href="Cybersecurity_Capstone_Engineering_Report.pdf" class="btn" target="_blank">📄 View Project 2 Report</a>
+                <a href="https://github.com" class="btn" target="_blank">⚙️ View Code Utility</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kofi Okrah Agyei. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
