@@ -97,10 +97,33 @@ index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR
 ---
 
 ## 🚀 Project 3: Zero Trust Perimeter Architecture (In Progress)
+rule ehr_lateral_access_hunting {
+  meta:
+    author = "Kofi Okrah Agyei"
+    description = "Detects anomalous lateral access attempts across multiple patient care data segments using a single compromised credential matrix."
+    severity = "High"
+    regulatory_mapping = "HIPAA Security Rule § 164.312(a)(1) - Access Control"
+
+  events:
+    $auth.metadata.event_type = "USER_LOGIN"
+    $auth.principal.user.userid = $user
+    $auth.target.asset.ip = $target_ip
+    
+    // Filters for healthcare network segments mapped in pfSense enclaves
+    $auth.target.resource.name = /.*ehr_system.*/ or $auth.target.resource.sub_domain = "clinical-phi"
+    $auth.metadata.vendor_name = "UMass_Memorial_EHR_Gateway"
+    $auth.security_result.action = "ALLOW"
+
+  match:
+    $user over 5m
+
+  condition:
+    #target_ip > 3
+}
 
 Designing an identity-centric network perimeter defense plan utilizing micro-segmentation models. This setup enforces absolute least-privilege resource validation schemas to prevent lateral internal transitions across multi-tenant infrastructures.
 
 ⏳ **Current Phase:** *Architecture Design & YARA-L Policy Mapping*
 
----
+
 © 2026 Kofi Okrah Agyei. All rights reserved.
