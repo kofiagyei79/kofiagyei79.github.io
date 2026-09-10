@@ -1,92 +1,73 @@
-### My Cybersecurity Portfolio
+# Kofi Okrah Agyei 🚀
+### Cybersecurity Analyst | Pentester | SIEM & Detection Engineer 
 
-Welcome to my cybersecurity project portfolio. This repository showcases my technical skills, hands-on lab setups, attack analyses, and security documentation. 
+Welcome to my central engineering and security validation repository. This portfolio bridges **healthcare data compliance (HIPAA/PHI) frameworks** with practical threat-hunting pipelines, enterprise cyber ranges, and production-grade SIEM engineering blueprints.
 
-### 🌐 Live Portfolio Website
+🌐 **Live Portfolio Website:** [kofiagyei79.github.io](https://kofiagyei79.github.io)  
+💼 **LinkedIn Profile:** [://linkedin.com](https://www.linkedin.com)
 
-View my live portfolio site here: [kofiagyei79.github.io](/url?sa=i&source=web&rct=j&url=https://kofiagyei79.github.io&ved=2ahUKEwiQvqDNl9WWAxWhLFkFHazBJuUQg5wRegYIAAgSEAs&opi=89978449&cd&psig=AOvVaw3NiXRi71I1tbriZVfqN_yt&ust=1788620197377000) 
+---
 
-### 🛠️ Technical Security Skills & Tools
+## 🛠️ Technical Security Competencies & Tools
+* **SIEM & Analytics:** Splunk Enterprise (SPL Engineering), Google SecOps (YARA-L Development)
+* **Endpoint & Threat Intel:** SentinelOne Deep Visibility, Wiz Cloud Security
+* **Network & Perimeter Defense:** pfSense Firewall Routing, Site-to-Site IPsec VPN Tunnels
+* **Offensive Security Labs:** Nmap, Wireshark, Metasploit Framework, EVE-NG Architecture
+* **Frameworks & Compliance:** HIPAA Patient Data Security, Access Control Matrices, SOC 2 Implementer
 
-* **Network Scanning & Enumeration:** Nmap
-* **Vulnerability Assessment & Exploitation:** Metasploit Framework
-* **Traffic & Packet Analysis:** Wireshark
-* **SIEM & Security Analytics:** Splunk Enterprise
-* **Perimeter Defense & Routing:** pfSense, IPsec VPN
-* **Testing Methodologies:** Black Box Testing, Hybrid Range Blue-Teaming, Attack Vector Analysis
-* **Documentation:** Technical Security Reporting, Presentation Delivery
+---
 
-### 🚀 Project 1: Black Box Hacking Simulation (Capstone)
+## 🚀 Project 1: Black Box Penetration Testing Simulation (Capstone)
 
-### Project Overview
+### 📋 Project Overview
+This project simulated a real-world adversarial attack against a blind "black box" host system to locate critical vulnerabilities, execute lateral environment movement, and test sandbox boundary escape mechanisms. The final phase transitions these offensive vectors into a **Purple Team** telemetry baseline to feed detection data pipelines.
 
-This project involved simulating a real-world cyberattack on a completely blind "black box" system to identify critical vulnerabilities. The objective was to research potential attack vectors, safely exploit system weaknesses, and document defensive remediation measures. 
+```text
++--------------------+      Active Nmap & Metasploit Vectors      +----------------------+
 
-### Core Phases Execution
+| Remote Attack Node | ========================================> | Confined target Host |
+|   (Kali Linux)     | <======================================== |    (rbash Sandbox)   |
++--------------------+        Interactive Reverse Payload        +----------------------+
+                                                                             ||
+                                                                      Syslog Forwarding
+                                                                      (Port 514 Splunk)
+                                                                             ||
+                                                                             \/
+                                                                  +----------------------+
 
-* **1. Reconnaissance & Scanning (Nmap)** 
+                                                                  | Central SIEM Target  |
+                                                                  +----------------------+
+```
 
-  * Used Nmap to perform network discovery and map out active hosts.
-  * Conducted service version detection (-sV) and OS fingerprinting (-O) to identify open ports and potential entry points.
-* **2. Packet Analysis & Monitoring (Wireshark)** 
+### ⚙️ Core Engagement Phases
+1. **Reconnaissance & Scan:** Exploited active discovery arrays using Nmap engine triggers (`-sV`, `-O`) to enumerate hidden network hooks.
+2. **Credential Extraction:** Abused unauthenticated local guest SMB directories to recover cleartext configurations (`deets.txt`).
+3. **Reverse Control Chain:** Dropped interactive reverse payloads by binding Metasploit handlers inside vulnerable web management dependencies.
+4. **Sandbox Isolation Escape:** Cleanly broke out of restricted local shells (`rbash`) using dynamic runtime library code injections.
+5. **Defensive Telemetry Ingestion:** Constructed a logging pipeline forwarding host operating system events and raw auth syslogs to a central logging collector over port 514 to map traffic spikes and process anomalies.
 
-  * Captured live network traffic using Wireshark during the initial scanning phases.
-  * Analyzed protocols and packet payloads to identify unencrypted text or unusual traffic patterns.
-* **3. Vulnerability Exploitation (Metasploit)** 
+📦 **Project 1 Assets:** 
+* 📥 [Download Capstone Presentation](./Presentation1Black%20Box%20system%20testing.pptx)
+* 📄 [View Formal Engineering Report](./Cybersecurity_Capstone_Engineering_Report.pdf)
 
-  * Cross-referenced open port services against known CVE databases.
-  * Utilized the Metasploit Framework to select, configure, and execute precise payloads against identified system vulnerabilities.
-* **4. Documentation & Reporting** 
-
-  * Authored comprehensive security documentation detailing the step-by-step attack chain.
-  * Created actionable remediation steps to patch the exploited vulnerabilities and harden the system.
-* **5. Blue Team Mitigation & Telemetry Engineering** 
-
-  * Deployed a data logging pipeline to forward internal host operating system events and raw syslog authentication streams directly out to a centralized SIEM instance over port 514.
-  * Simulated the initial nmap -A phase to map the exact traffic spikes, port hunting velocity, and packet behaviors left behind by scanning tools.
-  * Monitored system log anomalies during the Metasploit execution phase to identify abnormal process spawning and unexpected privilege escalations.
-
-### 🟣 Purple Team Integration (Active Engineering Phase)
-![Purple Team Lab Network Topology](image/purple-team-topology.png)
-
-Bridging Offensive Hacking with Defensive SIEM Monitoring. To simulate realistic enterprise workflows, the attack vectors executed in this Black Box Capstone (including Nmap scanning patterns and exploitation paths) are actively being used as the baseline testing material for Project 2. This allows me to capture live attack telemetry and engineer the exact Splunk SIEM detection rules listed below.
-
-#### 🗺️ Purple Team Lab Network Topology
-Below is the architectural blueprint transitioning the standalone offensive testing lab into an integrated Purple Team Pipeline. The environment operates on a unified network bracket segment using isolated host-only adapters to ensure zero leak execution.
-
-
-**Bridging Offensive Hacking with Defensive SIEM Monitoring**
-To simulate realistic enterprise workflows, the attack vectors executed in this Black Box Capstone (including Nmap scanning patterns and exploitation paths) are actively being used as the baseline testing material for Project 2. This allows me to capture live attack telemetry and engineer the exact Splunk SIEM detection rules listed below. 
-
-### 📂 Project 1 Assets
-
-* 📄 **Presentation:** Download Capstone Presentation
-
-### 🚀 Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering
+---
 
 ## 🚀 Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering
 
-### Project Overview
-This project demonstrates the design, deployment, and testing of a multi-subnet corporate architecture built inside EVE-NG. The objective is to evaluate perimeter defensive capabilities by routing Red Team exploitation sequences across a site-to-site VPN tunnel while aggregating system and network logs into a central Splunk Enterprise SIEM instance. 
+### 📋 Project Overview
+Designed and deployed a secure multi-subnet network architecture inside **EVE-NG** integrated into an AWS Cloud framework. The primary goal was to route live offensive exploitation traffic across encrypted paths and build custom **Splunk SIEM** dashboards to track malicious operations.
 
-### Core Phases Execution
-* **Network Boundary Segmentation & Zero-Trust Architecture** 
-  * Implemented a multi-interface pfSense gateway to enforce strict isolation between production assets, DMZs, and remote offices.
-  * Established an encrypted IPsec Site-to-Site VPN tunnel to securely route traffic from remote enclaves into the corporate backbone.
-* **Offensive Security Assessments (Red Team)** 
-  * **Reconnaissance:** Executed targeted Nmap discovery scans from the remote Kali Linux node (10.1.1.10) across the VPN to find open services inside the LAN.
-  * **Exploitation & Lateral Movement:** Compromised unpatched application-layer services on the target LAN machine (192.168.60.131) and established pivoting routes to audit the isolated DMZ zone (10.3.3.10).
-  * **Web Security Testing:** Used directory enumeration and traffic analysis to identify input parsing bugs and SQL Injection (SQLi) pathways on the corporate SAMAMTV web asset (192.168.60.50).
-* **Defensive Security Analytics & Detection Engineering (Blue Team)** 
-  * **Log Ingestion Pipeline:** Configured Splunk Universal Forwarders on endpoints to harvest Linux authentication records (linux_secure), web daemon streams (access_combined), and host shell histories (bash_history).
-  * **Threat Detection Architecture:** Developed custom Splunk Processing Language (SPL) rules to trigger high-fidelity alerts for network port scanning baselines, active SSH brute-force handshakes, and SQL injection strings.
+![Enterprise Lab Network Topology](./network-topology.png)
+
+### ⚙️ Core Engineering Components
+* **Zero-Trust Boundary Segmentation:** Deployed a multi-interface pfSense firewall gateway to isolate Attack Enclaves, Corporate LAN segments, and DMZs.
+* **Encrypted Data Pipelines:** Established an encrypted Site-to-Site IPsec VPN tunnel to route logging telemetry securely from the remote endpoints into the core Splunk deployment.
+* **Data Harvest Pipelines:** Configured Splunk Universal Forwarders across endpoints to harvest Linux authentication records (`linux_secure`), web daemon streams (`access_combined`), and host shell histories (`bash_history`).
 
 ### 🛡️ Production Detection Engineering Snippets (Splunk SPL)
-To validate the effectiveness of the telemetry pipeline, I engineered three high-fidelity alerting rules to isolate real-world threat vectors crossing the IPsec VPN tunnel from the remote node into the core network: 
 
-### Alert 1: Reconnaissance (Nmap Port Scan Detection)
-Monitors firewall traffic blocks to detect aggressive network enumeration hitting the web infrastructure. 
-
+#### Alert 1: Reconnaissance (Nmap Port Scan Detection)
+*Tracks aggressive network firewall blocks to catch scanning vectors targeting web nodes over the VPN.*
 ```splunk
 index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" 
 | bucket _time span=1m 
@@ -94,34 +75,32 @@ index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50
 | where unique_ports_scanned > 20
 ```
 
-### Alert 2: Credential Stuffing (SSH Brute Force Detection)
-Tracks anomalous authentication failure rates on the target host to mitigate potential root-level access compromises.
-
+#### Alert 2: Credential Stuffing (SSH Brute Force Detection)
+*Monitors anomalous authentication failure counts within narrow intervals to prevent unauthorized host compromise.*
 ```splunk
 index=network_logs sourcetype=linux_secure src_ip="10.1.1.10" dest_ip="192.168.60.131" "Failed password" 
 | stats count by src_ip, dest_ip, user 
 | where count > 5
 ```
 
-### Alert 3: Web Exploitation (Directory Traversal / Command Injection)
-Scans web daemon access events for application-layer exploit strings targeting the corporate application layer.
-
+#### Alert 3: Web Exploitation (Directory Traversal / Command Injection)
+*Scans web application access streams for application-layer exploit strings attempting directory break-outs.*
 ```splunk
 index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="etc/passwd" OR uri_path="cmd.exe" OR uri_path="bin/sh") 
 | table _time, src_ip, uri_path, status
 ```
 
-### 📂 Project 2 Assets
+📦 **Project 2 Assets:**
+* 📥 [Download Hybrid Lab PPTX](./Presentation2Enterprise%20Hybrid%20Lab.pptx)
+* ⚙️ [View Splunk Input Configurations](./defensive-blue-team/splunk/)
 
-[![Project 2 Presentation Preview](./project2-presentation-thumbnail.png)](./Presentation2_Enterprise_Splunk_SIEM.pptx)
+---
 
-* 📊 **Project Presentation:** [Download Project 2 PowerPoint Presentation](./Presentation2_Enterprise_Splunk_SIEM.pptx)
-* 💻 **Configuration Source Code:** [View Splunk inputs.conf & savedsearches.conf](./defensive-blue-team/splunk/configs/)
-* 📄 **Engineering Report:** [Download Capstone Engineering Report PDF](./Cybersecurity_Capstone_Engineering_Report.pdf)
+## 🚀 Project 3: Zero Trust Perimeter Architecture (In Progress)
 
-### 📩 Contact & Connect
-* **Email:** kofiagyei79@gmail.com
-* **GitHub:** [kofiagyei79](https://github.com/kofiagyei79)
+Designing an identity-centric network perimeter defense plan utilizing micro-segmentation models. This setup enforces absolute least-privilege resource validation schemas to prevent lateral internal transitions across multi-tenant infrastructures.
 
-© 2026 Kofi Agyei
+⏳ **Current Phase:** *Architecture Design & YARA-L Policy Mapping*
 
+---
+© 2026 Kofi Okrah Agyei. All rights reserved.
