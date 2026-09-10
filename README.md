@@ -94,7 +94,35 @@ index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR
 * 📥 [Download Hybrid Lab PPTX](./Presentation2Enterprise%20Hybrid%20Lab.pptx)
 * ⚙️ [View Splunk Input Configurations](./defensive-blue-team/splunk/)
 
+## 🧪 Detection Engineering & Rule Verification Framework
+
+To ensure the custom Splunk SPL search directives and Google SecOps YARA-L rules operate with high precision and zero false-negative failure rates, all detection logic was rigorously tested inside my enterprise-grade EVE-NG cyber range virtual infrastructure. 
+
++------------------+                    +--------------------+|    Kali Linux    | --[Attacks IP]-->  | Ubuntu Target Host || (10.1.1.10 Node) |                    | (192.168.60.131)   |+------------------+                    +--------------------+|                                         |+-----------> [ Routed Through ] <--------+|/+--------------------+|  pfSense Firewall  ||  (Multi-Interface) |+--------------------+|[ Syslog 514 ]/+--------------------+|   Splunk SIEM /    ||   Google SecOps    |+--------------------+
+### ⚙️ The Attack Simulation Pipeline
+The verification process was executed through a structured, multi-stage attack lifecycle to match real-world threat actor maneuvers:
+
+1. **Reconnaissance Spikes:** Initiated aggressive scanning profiles from the remote attack enclave (`10.1.1.10`) using target enumeration triggers (`nmap -p- -sV -T4 192.168.60.50`). The target multi-interface pfSense firewall successfully blocked unauthorized ports, logging the drops instantly to the perimeter index pool.
+2. **Credential Brute-Forcing:** Deployed automated credential attack matrices (`hydra -l root -P rockyou.txt ssh://192.168.60.131`) to force persistent authentication failures within short-duration time windows.
+3. **Data Staging & Archival Manipulation:** Once local access was established on a low-privilege service account, I executed mass read lookups across flat mock database files, bundling the staged output using native command-line data archiving strings (`tar -czf clinical_dump.tar.gz /var/log/clinical_records/`).
+
 ---
+
+### 🔍 Alert Logic Ingestion & Rule Validation Metrics
+
+#### 1. Splunk SPL Verification
+* **Trigger Event:** The brute-force matrix triggered massive spikes of `Failed password` authentication lines within the host system log `linux_secure` stream.
+* **Telemetry Analysis:** The `viz_auth_failures_over_time` line chart on the real-time Splunk Dashboard Studio layout successfully captured the operational anomaly. The rule accurately filtered out low-volume systemic noise, escalating the alert immediately when distinct user targets exceeded a value threshold of 5 failures within a single 60-second span.
+
+#### 2. Google SecOps YARA-L Verification
+* **Trigger Event:** The deployment of the archiving engine sequence triggered a local `PROCESS_LAUNCH` kernel event line tracking back to user shell parameters.
+* **Telemetry Analysis:** The multi-stage conditional query engine verified that the source account matched the database extract footprint. Because the event volume flag `#read > 50` successfully linked back to the target execution string, the rule immediately triggered a `Critical` severity indicator block on the console dashboard, preventing blind spots during data exfiltration phases.
+
+---
+
+### 💡 Engineering Key Takeaways
+* **Zero Leak Execution:** Network segmentation managed by the pfSense gateway successfully restricted raw lateral movement, forcing the traffic through designated security observation channels.
+* **High-Fidelity Tuning:** By shifting the detection focus away from basic singu
 
 ## 🚀 Project 3: Zero Trust Perimeter Architecture (In Progress)
 rule ehr_lateral_access_hunting {
