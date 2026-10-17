@@ -1,0 +1,59 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is entered into as of October 17, 2026 (the "Effective Date"), by and between:
+
+PROVIDER:
+Okagyeson Cyber Defense LLC
+145 Central St, Southbridge, MA 01550
+Corporate Email: info.defense@okagyeson.org
+Support Line: 508-410-3791
+Represented by: Kofi Agyei, CEO
+
+CLIENT:
+Okagyeson LLC
+Website: www.okagyeson.org
+Represented by: Authorized Management Representative
+
+WHEREAS, Provider operates a global corporate security operations center specializing in information security, threat detection, penetration testing, ethical hacking, and compliance management; and
+
+WHEREAS, Client is a registered corporate business entity operating an established web platform (www.okagyeson.org) and requires professional external offensive security validation, vulnerability management, and infrastructure monitoring;
+
+NOW, THEREFORE, the Parties agree as follows:
+
+1. SCOPE OF SERVICES
+Provider shall deliver comprehensive Security Operations Center (SOC) solutions, including:
+A. Network Boundary Defense & Infrastructure Monitoring.
+B. Offensive Security Validation including Web Penetration Testing and Ethical Hacking assessments on designated digital assets.
+C. Vulnerability analysis and managed SIEM detection engineering via dedicated remote monitoring architectures.
+D. Security engineering assessments to ensure data ecosystem alignment with industry-standard regulatory frameworks.
+
+2. FEES, INVOICING, AND PAYMENT
+A. Service Fees: Client shall pay Provider a standard corporate service fee of $500.00 per month for managed baseline defensive support.
+B. Payment Terms: Invoices shall be issued monthly by Provider. Client agrees to process payments to Provider's designated commercial business operating account within fifteen (15) business days of invoice receipt.
+C. Proof of Commercial Engagement: This Agreement explicitly establishes a binding legal and financial commitment, serving as definitive evidence of an active commercial cybersecurity service contract between two distinct registered business frameworks.
+
+3. TERM AND TERMINATION
+This Agreement shall commence on the Effective Date and remain in effect for an initial period of twelve (12) months. Either party may terminate this agreement upon thirty (30) days written notice if a material breach remains uncured.
+
+4. CONFIDENTIALITY AND DATA PROTECTION
+Provider agrees to maintain strict confidentiality regarding all non-public network infrastructure configurations, data flows, and internal business structures evaluated during the performance of services. All assessment records shall be safeguarded according to secure corporate data control protocols.
+
+5. LIMITATION OF LIABILITY
+Neither party shall be liable for indirect, incidental, or consequential damages arising out of this agreement. Provider's maximum aggregate liability shall not exceed the total cash fees paid by Client during the preceding three-month period.
+
+6. GOVERNING LAW
+This Agreement shall be governed by, interpreted, and enforced in accordance with the laws of the Commonwealth of Massachusetts, without regard to its conflict of law principles.
+
+IN WITNESS WHEREOF, the Parties hereto have executed this Master Services Agreement as of the Effective Date written above.
+
+
+_______________________________________
+Kofi Agyei, CEO
+Okagyeson Cyber Defense LLC
+Date: October 17, 2026
+
+
+_______________________________________
+Authorized Representative
+Okagyeson LLC
+Date: October 17, 2026
