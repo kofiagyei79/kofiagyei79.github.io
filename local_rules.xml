@@ -1,0 +1,8 @@
+<!-- Okagyeson Cyber Defense LLC - Custom SIEM Filter Rules -->
+<group name="local,">
+  <rule id="100051" level="0">
+    <if_sid>510</if_sid>
+    <match>/usr/bin/diff|/usr/bin/dir</match>
+    <description>Ignore false positive trojan warnings for verified system binaries.</description>
+  </rule>
+</group>
