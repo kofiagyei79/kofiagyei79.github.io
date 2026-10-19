@@ -1,157 +1,104 @@
-# Kofi Okrah Agyei 🚀
-### Cybersecurity Analyst | Pentester | SIEM & Detection Engineer 
-
-Welcome to my central engineering and security validation repository. This portfolio bridges **healthcare data compliance (HIPAA/PHI) frameworks** with practical threat-hunting pipelines, enterprise cyber ranges, and production-grade SIEM engineering blueprints.
-
-🌐 **Live Portfolio Website:** [kofiagyei79.github.io](https://kofiagyei79.github.io)  
-💼 **LinkedIn Profile:** [://linkedin.com](https://www.linkedin.com)
+# ⚔️ Enterprise Security Architecture & Compliance Validation
+### 📑 Case Study: Contract #1 Execution for Okagyeson LLC
+**Target Assessment Perimeter:** `https://okagyeson.org`  
+**Security Operations Engineering Team:** Okagyeson Cyber Defense LLC  
+**Lead Systems Security Engineer:** Kofi Okrah Agyei  
 
 ---
 
-## 🛠️ Technical Security Competencies & Tools
-* **SIEM & Analytics:** Splunk Enterprise (SPL Engineering), Google SecOps (YARA-L Development)
-* **Endpoint & Threat Intel:** SentinelOne Deep Visibility, Wiz Cloud Security
-* **Network & Perimeter Defense:** pfSense Firewall Routing, Site-to-Site IPsec VPN Tunnels
-* **Offensive Security Labs:** Nmap, Wireshark, Metasploit Framework, EVE-NG Architecture
-* **Frameworks & Compliance:** HIPAA Patient Data Security, Access Control Matrices, SOC 2 Implementer
+## 🎯 Executive Project Overview
+This repository contains the complete production configuration frameworks, network maps, and vulnerability triage documentation generated during the deployment of an enterprise-grade Security Operations Center (SOC) telemetry pipeline. 
+
+### The Enterprise Challenge
+The client required an immediate, comprehensive validation of their external perimeter routing, unified security analytics ingestion, and formal alignment with regulatory compliance metrics to safeguard operational workflows without introducing infrastructure downtime.
+
+### The Defensive Solution
+Our engineering team designed a synchronized multi-node infrastructure:
+1. **Offensive Surface Inspection:** Mapping the perimeter attack landscape to discover unshielded protocols, proxy behavior, and input boundaries.
+2. **EDR Endpoint Telemetry:** Deploying decentralized Wazuh Agents to stream host-level audit traits and console histories directly into the detection engines.
+3. **SIEM Data Aggregation:** Orchestrating a centralized data ingestion loop within Splunk Enterprise to analyze system telemetry in real time.
 
 ---
 
-## 🚀 Project 1: Black Box Penetration Testing Simulation (Capstone)
-
-### 📋 Project Overview
-This project simulated a real-world adversarial attack against a blind "black box" host system to locate critical vulnerabilities, execute lateral environment movement, and test sandbox boundary escape mechanisms. The final phase transitions these offensive vectors into a **Purple Team** telemetry baseline to feed detection data pipelines.
+## 🗺️ System Topology & Data Flow Diagram
 
 ```text
-+--------------------+      Active Nmap & Metasploit Vectors      +----------------------+
-
-| Remote Attack Node | ========================================> | Confined target Host |
-|   (Kali Linux)     | <======================================== |    (rbash Sandbox)   |
-+--------------------+        Interactive Reverse Payload        +----------------------+
-                                                                             ||
-                                                                      Syslog Forwarding
-                                                                      (Port 514 Splunk)
-                                                                             ||
-                                                                             \/
-                                                                  +----------------------+
-
-                                                                  | Central SIEM Target  |
-                                                                  +----------------------+
+  [ Kali Attack Machine ] ──────────(Active Verification)──────────> [ www.okagyeson.org ]
+             │                                                                │
+     (Terminal Audits)                                              (Cloudflare Reverse Proxy)
+             ▼                                                                ▼
+    [ Wazuh EDR Agent ] ───────────(Encrypted Ports 1514/1515)──────────> [ Wazuh Manager ]
+                                                                              │
+                                                                   (JSON Log Ingestion Forward)
+                                                                              ▼
+                                                                      [ Splunk SIEM ]
 ```
-
-### ⚙️ Core Engagement Phases
-1. **Reconnaissance & Scan:** Exploited active discovery arrays using Nmap engine triggers (`-sV`, `-O`) to enumerate hidden network hooks.
-2. **Credential Extraction:** Abused unauthenticated local guest SMB directories to recover cleartext configurations (`deets.txt`).
-3. **Reverse Control Chain:** Dropped interactive reverse payloads by binding Metasploit handlers inside vulnerable web management dependencies.
-4. **Sandbox Isolation Escape:** Cleanly broke out of restricted local shells (`rbash`) using dynamic runtime library code injections.
-5. **Defensive Telemetry Ingestion:** Constructed a logging pipeline forwarding host operating system events and raw auth syslogs to a central logging collector over port 514 to map traffic spikes and process anomalies.
-
-📦 **Project 1 Assets:** 
-* 📥 [Download Capstone Presentation](./Presentation1Black%20Box%20system%20testing.pptx)
-* 📄 [View Formal Engineering Report](./Cybersecurity_Capstone_Engineering_Report.pdf)
 
 ---
 
-## 🚀 Project 2: Enterprise Hybrid Lab & Splunk SIEM Engineering
+## 🛠️ Production Configuration Blueprints
 
-### 📋 Project Overview
-Designed and deployed a secure multi-subnet network architecture inside **EVE-NG** integrated into an AWS Cloud framework. The primary goal was to route live offensive exploitation traffic across encrypted paths and build custom **Splunk SIEM** dashboards to track malicious operations.
-
-![Enterprise Lab Network Topology](./network-topology.png)
-
-### ⚙️ Core Engineering Components
-* **Zero-Trust Boundary Segmentation:** Deployed a multi-interface pfSense firewall gateway to isolate Attack Enclaves, Corporate LAN segments, and DMZs.
-* **Encrypted Data Pipelines:** Established an encrypted Site-to-Site IPsec VPN tunnel to route logging telemetry securely from the remote endpoints into the core Splunk deployment.
-* **Data Harvest Pipelines:** Configured Splunk Universal Forwarders across endpoints to harvest Linux authentication records (`linux_secure`), web daemon streams (`access_combined`), and host shell histories (`bash_history`).
-
-### 🛡️ Production Detection Engineering Snippets (Splunk SPL)
-
-#### Alert 1: Reconnaissance (Nmap Port Scan Detection)
-*Tracks aggressive network firewall blocks to catch scanning vectors targeting web nodes over the VPN.*
-```splunk
-index=firewall_logs sourcetype=pfsense src_ip="10.1.1.10" dest_ip="192.168.60.50" action="blocked" OR action="rejected" 
-| bucket _time span=1m 
-| stats dc(dest_port) as unique_ports_scanned by _time, src_ip, dest_ip 
-| where unique_ports_scanned > 20
+### 1. Endpoint Log Collector (`ossec.conf`)
+Configured locally on the operations environment to hook standard shell command execution histories directly into the security daemon data streams:
+```xml
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/home/agyei/.bash_history</location>
+  </localfile>
+</ossec_config>
 ```
 
-#### Alert 2: Credential Stuffing (SSH Brute Force Detection)
-*Monitors anomalous authentication failure counts within narrow intervals to prevent unauthorized host compromise.*
-```splunk
-index=network_logs sourcetype=linux_secure src_ip="10.1.1.10" dest_ip="192.168.60.131" "Failed password" 
-| stats count by src_ip, dest_ip, user 
-| where count > 5
+### 2. SIEM Telemetry Analytics (Splunk SPL)
+The core query syntax used to parse, isolate, and visualize endpoint activity trends within the centralized security dashboard:
+```spl
+index=security "kali-agent-02"
 ```
 
-#### Alert 3: Web Exploitation (Directory Traversal / Command Injection)
-*Scans web application access streams for application-layer exploit strings attempting directory break-outs.*
-```splunk
-index=web_logs sourcetype=access_combined dest_ip="192.168.60.50" (status=404 OR status=403) AND (uri_path="etc/passwd" OR uri_path="cmd.exe" OR uri_path="bin/sh") 
-| table _time, src_ip, uri_path, status
+### 3. Wazuh Custom Manager Rules (`local_rules.xml`)
+Custom XML exception logic injected into the central manager to handle baseline signature mismatches, effectively silencing Level 7 system check false positives while keeping the master rule container intact:
+```xml
+<group name="local,">
+  <rule id="100051" level="0">
+    <if_sid>510</if_sid>
+    <match>/usr/bin/diff|/usr/bin/dir</match>
+    <description>Ignore false positive trojan warnings for verified system binaries.</description>
+  </rule>
+</group>
 ```
-
-📦 **Project 2 Assets:**
-* 📥 [Download Hybrid Lab PPTX](./Presentation2Enterprise%20Hybrid%20Lab.pptx)
-* ⚙️ [View Splunk Input Configurations](./defensive-blue-team/splunk/)
-
-## 🧪 Detection Engineering & Rule Verification Framework
-
-To ensure the custom Splunk SPL search directives and Google SecOps YARA-L rules operate with high precision and zero false-negative failure rates, all detection logic was rigorously tested inside my enterprise-grade EVE-NG cyber range virtual infrastructure. 
-
-+------------------+                    +--------------------+|    Kali Linux    | --[Attacks IP]-->  | Ubuntu Target Host || (10.1.1.10 Node) |                    | (192.168.60.131)   |+------------------+                    +--------------------+|                                         |+-----------> [ Routed Through ] <--------+|/+--------------------+|  pfSense Firewall  ||  (Multi-Interface) |+--------------------+|[ Syslog 514 ]/+--------------------+|   Splunk SIEM /    ||   Google SecOps    |+--------------------+
-### ⚙️ The Attack Simulation Pipeline
-The verification process was executed through a structured, multi-stage attack lifecycle to match real-world threat actor maneuvers:
-
-1. **Reconnaissance Spikes:** Initiated aggressive scanning profiles from the remote attack enclave (`10.1.1.10`) using target enumeration triggers (`nmap -p- -sV -T4 192.168.60.50`). The target multi-interface pfSense firewall successfully blocked unauthorized ports, logging the drops instantly to the perimeter index pool.
-2. **Credential Brute-Forcing:** Deployed automated credential attack matrices (`hydra -l root -P rockyou.txt ssh://192.168.60.131`) to force persistent authentication failures within short-duration time windows.
-3. **Data Staging & Archival Manipulation:** Once local access was established on a low-privilege service account, I executed mass read lookups across flat mock database files, bundling the staged output using native command-line data archiving strings (`tar -czf clinical_dump.tar.gz /var/log/clinical_records/`).
 
 ---
 
-### 🔍 Alert Logic Ingestion & Rule Validation Metrics
+## 📑 Executive Cybersecurity Assessment Report
 
-#### 1. Splunk SPL Verification
-* **Trigger Event:** The brute-force matrix triggered massive spikes of `Failed password` authentication lines within the host system log `linux_secure` stream.
-* **Telemetry Analysis:** The `viz_auth_failures_over_time` line chart on the real-time Splunk Dashboard Studio layout successfully captured the operational anomaly. The rule accurately filtered out low-volume systemic noise, escalating the alert immediately when distinct user targets exceeded a value threshold of 5 failures within a single 60-second span.
+### 1. Perimeter Scanning Matrix (Offensive Discovery)
+* **Infrastructure Discovery:** The target framework operates over a Cloudflare proxy tier, passing unencrypted HTTP requests through hard `302 Found` redirection policies to enforce secure HTTPS transmission lines.
+* **Backend Asset Fingerprint:** The underlying site routing interfaces directly with the Yola Site Builder ecosystem (`*.yolasite.com`) backed by a Varnish cache engine proxy layer.
+* **Attack Surface Boundary:** Critical management layers (SSH, FTP, MySQL) are securely filtered by network-level Access Control Lists (ACLs). 
 
-#### 2. Google SecOps YARA-L Verification
-* **Trigger Event:** The deployment of the archiving engine sequence triggered a local `PROCESS_LAUNCH` kernel event line tracking back to user shell parameters.
-* **Telemetry Analysis:** The multi-stage conditional query engine verified that the source account matched the database extract footprint. Because the event volume flag `#read > 50` successfully linked back to the target execution string, the rule immediately triggered a `Critical` severity indicator block on the console dashboard, preventing blind spots during data exfiltration phases.
+### 2. Vulnerability Backlog
+* **Missing HTTP Security Standards:** The application delivery tier completely lacks active security boundaries, including a **Content Security Policy (CSP)**, **Strict-Transport-Security (HSTS)**, and **X-Frame-Options** headers.
+* **Risk Profile:** The unshielded Varnish cache platform leaves the frontend layer susceptible to potential Web Cache Deception patterns if input fields or file upload modules are mutated.
+
+### 3. Engineering Recommendations (Remediation Patch)
+To secure the application against these structural framework gaps, the client must apply the following secure header enforcement policies within their production reverse proxies:
+```nginx
+# Production Hardening Matrix
+add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; object-src 'none';" always;
+add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+add_header X-Frame-Options "DENY" always;
+add_header X-Content-Type-Options "nosniff" always;
+```
 
 ---
 
-### 💡 Engineering Key Takeaways
-* **Zero Leak Execution:** Network segmentation managed by the pfSense gateway successfully restricted raw lateral movement, forcing the traffic through designated security observation channels.
-* **High-Fidelity Tuning:** By shifting the detection focus away from basic singu
+## 📊 Enterprise Regulatory Compliance Matrix
 
-## 🚀 Project 3: Zero Trust Perimeter Architecture (In Progress)
-rule ehr_lateral_access_hunting {
-  meta:
-    author = "Kofi Okrah Agyei"
-    description = "Detects anomalous lateral access attempts across multiple patient care data segments using a single compromised credential matrix."
-    severity = "High"
-    regulatory_mapping = "HIPAA Security Rule § 164.312(a)(1) - Access Control"
+Our technical architecture maps directly to the required security controls of global audit standards:
 
-  events:
-    $auth.metadata.event_type = "USER_LOGIN"
-    $auth.principal.user.userid = $user
-    $auth.target.asset.ip = $target_ip
-    
-    // Filters for healthcare network segments mapped in pfSense enclaves
-    $auth.target.resource.name = /.*ehr_system.*/ or $auth.target.resource.sub_domain = "clinical-phi"
-    $auth.metadata.vendor_name = "UMass_Memorial_EHR_Gateway"
-    $auth.security_result.action = "ALLOW"
+| Implemented Architecture | Technical Auditing Mechanism | Regulatory Compliance Mapping |
+| :--- | :--- | :--- |
+| **Wazuh EDR Heartbeat Integration** | Streamed continuous process loops, tracked administrative privilege elevation triggers (`sudo`), and verified host-level configuration states. | **HIPAA Security Rule § 164.312(b)** (Audit Controls)<br>**ISO 27001 Control A.12.4.1** (Event Logging) |
+| **Splunk SIEM Data Pipeline** | Centralized separate agent datasets into a secure, searchable log storage interface for real-time risk assessment. | **SOC 2 Type II CC7.2** (Security Monitoring)<br>**ISO 27001 Control A.12.4.3** (Admin Logs) |
+| **Custom XML Rule Optimization** | Tuned out false-positive alarm noise to guarantee high-severity security notifications are prioritized within the operations center. | **SOC 2 Type II CC7.1** (Operational Controls)<br>**HIPAA Security Rule § 164.308(a)(1)** (Risk Management) |
 
-  match:
-    $user over 5m
-
-  condition:
-    #target_ip > 3
-}
-
-Designing an identity-centric network perimeter defense plan utilizing micro-segmentation models. This setup enforces absolute least-privilege resource validation schemas to prevent lateral internal transitions across multi-tenant infrastructures.
-
-⏳ **Current Phase:** *Architecture Design & YARA-L Policy Mapping*
-
-
-© 2026 Kofi Okrah Agyei. All rights reserved.
+---
